@@ -17,6 +17,6 @@ abstract class MainModule {
         @Provides
         @JvmStatic
         @Named("Greeting")
-        fun provideGreeting(): String = "Hello, Starter App!"
+        fun provideGreeting(): String = "Let's do this!"
     }
 }
