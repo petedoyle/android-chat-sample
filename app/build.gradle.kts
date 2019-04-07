@@ -53,6 +53,7 @@ dependencies {
     implementation(Deps.androidx_appcompat)
     implementation(Deps.androidx_constraintlayout)
     implementation(Deps.androidx_ktx)
+    implementation(Deps.moshi)
 
     // Testing
     testImplementation(Deps.Test.junit)

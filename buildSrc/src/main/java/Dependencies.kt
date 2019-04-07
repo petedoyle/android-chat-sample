@@ -7,6 +7,7 @@ private object Versions {
     const val dagger = "2.22.1"
     const val javax_annotation_jsr250 = "1.0"
     const val kotlin = "1.3.21"
+    const val moshi = "1.8.0"
 
     object Build {
         const val android_gradle_plugin = "3.5.0-alpha10"
@@ -42,6 +43,7 @@ object Deps {
     const val dagger_android_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
     const val dagger_android_processor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     const val dagger_compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+    const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     const val javax_annotation_jsr250 = "javax.annotation:jsr250-api:${Versions.javax_annotation_jsr250}"
     const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 

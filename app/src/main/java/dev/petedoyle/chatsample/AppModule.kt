@@ -2,6 +2,8 @@ package dev.petedoyle.chatsample
 
 import android.app.Application
 import android.content.Context
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -17,5 +19,11 @@ abstract class AppModule {
         @Provides
         @JvmStatic
         internal fun provideResources(context: Context) = context.resources
+
+        @Provides
+        @JvmStatic
+        internal fun provideMoshi() = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
     }
 }
