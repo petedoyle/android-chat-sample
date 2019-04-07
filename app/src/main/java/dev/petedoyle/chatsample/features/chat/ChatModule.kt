@@ -1,4 +1,4 @@
-package dev.petedoyle.chatsample.features.main
+package dev.petedoyle.chatsample.features.chat
 
 import dagger.Module
 import dagger.Provides
@@ -6,7 +6,7 @@ import dev.petedoyle.daggerutil.ActivityScope
 import javax.inject.Named
 
 @Module
-abstract class MainModule {
+abstract class ChatModule {
 
     @Module
     companion object {

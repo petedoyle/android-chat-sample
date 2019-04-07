@@ -1,4 +1,4 @@
-package dev.petedoyle.chatsample.features.main
+package dev.petedoyle.chatsample.features.chat
 
 import android.os.Bundle
 import android.widget.TextView
@@ -7,16 +7,16 @@ import dev.petedoyle.chatsample.R
 import javax.inject.Inject
 import javax.inject.Named
 
-class MainActivity : BaseActivity() {
+class ChatActivity : BaseActivity() {
 
     @field:[Inject Named("Greeting")]
     lateinit var greeting: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_chat)
 
-        // A visual proof that dagger is working. See MainModule.
+        // A visual proof that dagger is working. See ChatModule.
         findViewById<TextView>(R.id.hello).text = greeting
     }
 }
