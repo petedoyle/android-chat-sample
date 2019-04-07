@@ -1,12 +1,9 @@
-package dev.petedoyle.starter.features.main
+package dev.petedoyle.chatsample.features.main
 
 import dagger.Module
 import dagger.Provides
-import dagger.android.ContributesAndroidInjector
 import dev.petedoyle.daggerutil.ActivityScope
-import java.math.BigInteger
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 abstract class MainModule {
@@ -17,6 +14,6 @@ abstract class MainModule {
         @Provides
         @JvmStatic
         @Named("Greeting")
-        fun provideGreeting(): String = "Let's do this!"
+        fun provideGreeting(): String = "Chat sample"
     }
 }

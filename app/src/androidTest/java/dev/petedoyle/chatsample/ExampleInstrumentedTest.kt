@@ -1,4 +1,4 @@
-package dev.petedoyle.starter
+package dev.petedoyle.chatsample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("dev.petedoyle.starter", appContext.packageName)
+        assertEquals("dev.petedoyle.chatsample", appContext.packageName)
     }
 }

@@ -1,4 +1,4 @@
-package dev.petedoyle.starter
+package dev.petedoyle.chatsample
 
 import org.junit.Test
 

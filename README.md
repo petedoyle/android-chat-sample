@@ -30,7 +30,7 @@ It *does not provide*:
 
 
 #### Coming soon
-- **Rename default package** (currently `dev.petedoyle.starter`)
+- **Rename default package** (currently `dev.petedoyle.chatsample`)
 - **Incremental annotation processing -** for faster builds (waiting for a few more annotation processors to [support](https://github.com/gradle/gradle/blob/master/subprojects/docs/src/docs/userguide/java_plugin.adoc#state-of-support-in-popular-annotation-processors) it)
 - **Automatic `versionCode` management -** for CI builds
 - Sample CircleCI config that:
@@ -71,7 +71,7 @@ It *does not provide*:
 
 ## Finding your way around
 
-- See `MainActivity` to see the sample activity. Note the package: `dev.petedoyle.starter.feature.main`.
+- See `MainActivity` to see the sample activity. Note the package: `dev.petedoyle.chatsample.feature.main`.
 - See `MainModule` to see how `MainActivity`'s dependencies can be provided. The lifetime of `MainModule`'s object graph is scoped to `MainActivity` (because `@ContributesAndroidInjector` in `ActivityBindingModule` created a Dagger `Subcomponent` under the hood, scoped to `MainActivity`).
 - See `AppModule` to see how app-wide dependencies can be provided.
 - See `buildSrc/src/main/java/Dependencies.kt` for declaring libraries and their versions.

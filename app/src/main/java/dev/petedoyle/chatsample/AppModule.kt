@@ -1,14 +1,10 @@
-package dev.petedoyle.starter
+package dev.petedoyle.chatsample
 
 import android.app.Application
 import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import java.math.BigInteger
-import javax.inject.Named
-import javax.inject.Singleton
-import kotlin.random.Random
 
 @Module
 abstract class AppModule {

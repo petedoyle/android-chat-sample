@@ -1,4 +1,4 @@
-package dev.petedoyle.starter
+package dev.petedoyle.chatsample
 
 import android.app.Application
 import dagger.BindsInstance
@@ -16,7 +16,7 @@ import javax.inject.Singleton
         ActivityBindingModule::class
     ]
 )
-interface AppComponent : AndroidInjector<StarterApplication> {
+interface AppComponent : AndroidInjector<ChatApplication> {
 
     @Component.Builder
     interface Builder {

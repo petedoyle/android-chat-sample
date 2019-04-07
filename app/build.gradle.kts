@@ -17,7 +17,7 @@ android {
     compileSdkVersion(Deps.compileSdkVersion)
 
     defaultConfig {
-        applicationId = "dev.petedoyle.starter"
+        applicationId = "dev.petedoyle.chatsample"
         minSdkVersion(Deps.minSdkVersion)
         targetSdkVersion(Deps.targetSdkVersion)
 

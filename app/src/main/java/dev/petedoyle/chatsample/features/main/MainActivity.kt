@@ -1,9 +1,9 @@
-package dev.petedoyle.starter.features.main
+package dev.petedoyle.chatsample.features.main
 
 import android.os.Bundle
 import android.widget.TextView
-import dev.petedoyle.starter.BaseActivity
-import dev.petedoyle.starter.R
+import dev.petedoyle.chatsample.BaseActivity
+import dev.petedoyle.chatsample.R
 import javax.inject.Inject
 import javax.inject.Named
 
