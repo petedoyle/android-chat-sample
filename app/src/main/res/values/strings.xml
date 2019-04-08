@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Chat Sample</string>
+    <string name="me">Me</string>
 </resources>

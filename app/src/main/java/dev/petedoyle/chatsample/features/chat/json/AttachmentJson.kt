@@ -1,6 +1,6 @@
-package dev.petedoyle.chatsample.features.chat.domain
+package dev.petedoyle.chatsample.features.chat.json
 
-data class Attachment(
+data class AttachmentJson(
     val id: String,
     val title: String,
     val url: String,

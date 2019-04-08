@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#3F82EF</color>
+    <color name="colorPrimaryDark">#286DD9</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="offWhiteFA">#FAFAFA</color>
+    <color name="offWhiteF9">#F9F9F9</color>
+    <color name="attachmentText">#9D9D9D</color>
+    <color name="attachmentSeparator">#E6E5E4</color>
+    <color name="bubbleUsername">#6D6D6D</color>
+    <color name="bubbleBackgroundFill">#F9F9F9</color>
+    <color name="bubbleBackgroundStroke">#EAEAEA</color>
+    <color name="bubbleBackgroundFillMe">#EAEAEA</color>
+    <color name="messageTextColor">#4D4D4D</color>
 </resources>

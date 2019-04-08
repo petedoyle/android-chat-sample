@@ -2,8 +2,8 @@ package dev.petedoyle.chatsample.features.chat
 
 import dagger.Module
 import dagger.Provides
+import dev.petedoyle.chatsample.persistence.AppDatabase
 import dev.petedoyle.daggerutil.ActivityScope
-import javax.inject.Named
 
 @Module
 abstract class ChatModule {
@@ -13,7 +13,11 @@ abstract class ChatModule {
         @ActivityScope
         @Provides
         @JvmStatic
-        @Named("Greeting")
-        fun provideGreeting(): String = "Chat sample"
+        fun provideChatRepository(db: AppDatabase): ChatRepository = DefaultChatRepository(db)
+
+        @ActivityScope
+        @Provides
+        @JvmStatic
+        internal fun provideChatViewModel(chatRepository: ChatRepository) = ChatViewModel(chatRepository)
     }
 }
