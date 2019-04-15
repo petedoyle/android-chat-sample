@@ -21,10 +21,5 @@ abstract class ChatModule {
         @JvmStatic
         fun provideChatRepository(db: AppDatabase, factory: ChatDataSourceFactory): ChatRepository =
             DefaultChatRepository(db, factory)
-
-        @ActivityScope
-        @Provides
-        @JvmStatic
-        internal fun provideChatViewModel(chatRepository: ChatRepository) = ChatViewModel(chatRepository)
     }
 }
