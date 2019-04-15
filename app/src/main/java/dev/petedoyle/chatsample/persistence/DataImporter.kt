@@ -1,5 +1,6 @@
 package dev.petedoyle.chatsample.persistence
 
+import android.annotation.SuppressLint
 import android.app.Application
 import com.squareup.moshi.Moshi
 import dev.petedoyle.chatsample.features.chat.json.ChatResponseJson
@@ -20,11 +21,11 @@ class DataImporter @Inject constructor(
     private val db: AppDatabase
 ) {
 
+    @SuppressLint("CheckResult")
     fun import(application: Application) {
         // Import data on a background thread
-        val ignore = Completable
-            .create {
-                // TODO use coroutines
+        Completable
+            .create { emitter ->
                 application.resources.openRawResource(
                     application.resources.getIdentifier("data", "raw", application.packageName)
                 ).use { inputStream ->
@@ -34,6 +35,8 @@ class DataImporter @Inject constructor(
 
                     parseChatResponse(json)
                 }
+
+                emitter.onComplete()
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -44,7 +47,7 @@ class DataImporter @Inject constructor(
             })
     }
 
-    private fun parseChatResponse(json: ChatResponseJson?) { // TODO suspend fun
+    private fun parseChatResponse(json: ChatResponseJson?) {
         if (json == null) {
             return
         }
@@ -66,22 +69,10 @@ class DataImporter @Inject constructor(
             users.add(User.fromJson(it))
         }
 
-        db.apply {
-            runInTransaction {
-                chatDao().apply {
-                    insertMessages(messages)
-                        .subscribeOn(Schedulers.io())
-                        .subscribe()
-
-                    insertAttachments(attachments)
-                        .subscribeOn(Schedulers.io())
-                        .subscribe()
-
-                    insertUsers(users)
-                        .subscribeOn(Schedulers.io())
-                        .subscribe()
-                }
-            }
+        db.runInTransaction {
+            db.chatDao().insertMessages(messages)
+            db.chatDao().insertAttachments(attachments)
+            db.chatDao().insertUsers(users)
         }
     }
 }

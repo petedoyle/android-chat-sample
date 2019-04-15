@@ -18,13 +18,13 @@ interface ChatDao {
     fun getMessagesPage(pageSize: Int, offset: Int): List<ChatQueryResult>
 
     @Insert
-    fun insertUsers(users: List<User>): Completable
+    fun insertUsers(users: List<User>)
 
     @Insert
-    fun insertMessages(messages: List<ChatItem.Message>): Completable
+    fun insertMessages(messages: List<ChatItem.Message>)
 
     @Insert
-    fun insertAttachments(attachments: List<ChatItem.Attachment>): Completable
+    fun insertAttachments(attachments: List<ChatItem.Attachment>)
 
     @Delete
     fun deleteMessage(message: ChatItem.Message): Completable

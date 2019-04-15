@@ -3,12 +3,14 @@ package dev.petedoyle.chatsample.features.chat
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.petedoyle.chatsample.BaseActivity
 import dev.petedoyle.chatsample.R
 import dev.petedoyle.chatsample.databinding.ActivityChatBinding
+import dev.petedoyle.chatsample.features.chat.persistence.ChatItem
 import dev.petedoyle.chatsample.features.chat.widget.ChatAttachmentMeViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatAttachmentViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatMessageMeViewHolder
