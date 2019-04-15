@@ -91,10 +91,18 @@ class ChatAdapter(
 
         private val diffCallback = object : DiffUtil.ItemCallback<ChatItem>() {
             override fun areItemsTheSame(oldItem: ChatItem, newItem: ChatItem): Boolean {
-                return oldItem === newItem
+                if (oldItem.javaClass != newItem.javaClass) {
+                    return false
+                }
+
+                return when (newItem) {
+                    is ChatItem.Message -> newItem.id == (oldItem as ChatItem.Message).id
+                    is ChatItem.Attachment -> newItem.id == (oldItem as ChatItem.Attachment).id
+                    is ChatItem.ExtraSpaceDifferentUser -> true
+                }
             }
 
-            @SuppressLint("DiffUtilEquals") // These are data classes, so == is always deep
+            @SuppressLint("DiffUtilEquals") // This is Kotlin and these are data classes, so == is always deep
             override fun areContentsTheSame(oldItem: ChatItem, newItem: ChatItem): Boolean {
                 return oldItem == newItem
             }
