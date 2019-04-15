@@ -14,12 +14,6 @@ class ChatApplication : DaggerApplication() {
     @Inject
     lateinit var dataImporter: DataImporter
 
-//    @Inject
-//    internal lateinit var appDatabase: AppDatabase
-
-//    @Inject
-//    internal lateinit var moshi: Moshi
-
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
         DaggerAppComponent
             .builder()

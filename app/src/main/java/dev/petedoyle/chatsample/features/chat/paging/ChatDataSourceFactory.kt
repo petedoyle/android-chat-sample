@@ -9,8 +9,12 @@ import javax.inject.Inject
 class ChatDataSourceFactory @Inject constructor(
     private val db: AppDatabase
 ) : DataSource.Factory<Int, ChatItem>() {
+
     private val sourceLiveData = MutableLiveData<ChatPagedKeyDataSource>()
-    private lateinit var latestSource: ChatPagedKeyDataSource
+
+    var latestSource: ChatPagedKeyDataSource = ChatPagedKeyDataSource(db).apply {
+        sourceLiveData.postValue(this)
+    }
 
     override fun create(): DataSource<Int, ChatItem> {
         latestSource = ChatPagedKeyDataSource(db)

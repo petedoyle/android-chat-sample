@@ -9,4 +9,5 @@ import io.reactivex.Single
 interface IChatViewModel {
     fun getUser(userId: Int): Single<User>
     fun displayItems(): LiveData<PagedList<ChatItem>>
+    fun delete(item: ChatItem?, success: () -> Unit, error: (Throwable) -> Unit)
 }

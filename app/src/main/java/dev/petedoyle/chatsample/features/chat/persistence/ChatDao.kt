@@ -1,6 +1,7 @@
 package dev.petedoyle.chatsample.features.chat.persistence
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
@@ -14,7 +15,7 @@ interface ChatDao {
 
     @Transaction
     @Query("SELECT * FROM messages ORDER BY id ASC LIMIT :pageSize OFFSET :offset")
-    fun getMessagesPage(pageSize: Int, offset: Int): Single<List<ChatQueryResult>>
+    fun getMessagesPage(pageSize: Int, offset: Int): List<ChatQueryResult>
 
     @Insert
     fun insertUsers(users: List<User>): Completable
@@ -24,4 +25,10 @@ interface ChatDao {
 
     @Insert
     fun insertAttachments(attachments: List<ChatItem.Attachment>): Completable
+
+    @Delete
+    fun deleteMessage(message: ChatItem.Message): Completable
+
+    @Delete
+    fun deleteAttachment(attachment: ChatItem.Attachment): Completable
 }
