@@ -56,4 +56,6 @@ sealed class ChatItem {
             )
         }
     }
+
+    data class ExtraSpaceDifferentUser(val id: Long = -100): ChatItem()
 }

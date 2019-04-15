@@ -4,13 +4,11 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.petedoyle.chatsample.R
 import dev.petedoyle.chatsample.features.chat.persistence.ChatItem
-import timber.log.Timber
 import java.util.UUID
 
 class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCallback) {
@@ -33,6 +31,11 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
             ITEM_TYPE_ATTACHMENT_ME -> ChatAttachmentMeViewHolder(
                 DataBindingUtil.inflate(inflater, R.layout.item_chat_attachment_me, parent, false)
             )
+
+            ITEM_TYPE_EXTRA_SPACING_DIFFERENT_USER -> ChatExtraSpaceDifferentUserViewHolder(
+                DataBindingUtil.inflate(inflater, R.layout.item_chat_extra_space_different_user, parent, false)
+            )
+
             else -> throw UnsupportedOperationException("Unhandled view type: $viewType")
         }
     }
@@ -44,6 +47,7 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
             is ChatMessageMeViewHolder -> holder.bindTo(item as ChatItem.Message)
             is ChatAttachmentViewHolder -> holder.bindTo(item as ChatItem.Attachment)
             is ChatAttachmentMeViewHolder -> holder.bindTo(item as ChatItem.Attachment)
+            is ChatExtraSpaceDifferentUserViewHolder -> holder.bindTo(item as ChatItem.ExtraSpaceDifferentUser)
         }
     }
 
@@ -56,6 +60,7 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
             true -> ITEM_TYPE_ATTACHMENT_ME
             else -> ITEM_TYPE_ATTACHMENT
         }
+        is ChatItem.ExtraSpaceDifferentUser -> ITEM_TYPE_EXTRA_SPACING_DIFFERENT_USER
 
         else -> throw UnsupportedOperationException("Unhandled item type: $item")
     }
@@ -64,14 +69,9 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
         when (val item = getItem(position)) {
             is ChatItem.Message -> item.id.toLong()
             is ChatItem.Attachment -> UUID.fromString(item.id).leastSignificantBits
+            is ChatItem.ExtraSpaceDifferentUser -> item.id
             else -> throw UnsupportedOperationException("Unhandled item type: $item")
         }
-
-    override fun submitList(pagedList: PagedList<ChatItem>?) {
-        Timber.d("submitList: ${pagedList?.size}")
-        super.submitList(pagedList)
-
-    }
 
     companion object {
         private const val USER_ID_ME = 1
@@ -80,13 +80,14 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
         private const val ITEM_TYPE_MESSAGE_ME = 2
         private const val ITEM_TYPE_ATTACHMENT = 3
         private const val ITEM_TYPE_ATTACHMENT_ME = 4
+        private const val ITEM_TYPE_EXTRA_SPACING_DIFFERENT_USER = 5
 
         private val diffCallback = object : DiffUtil.ItemCallback<ChatItem>() {
             override fun areItemsTheSame(oldItem: ChatItem, newItem: ChatItem): Boolean {
-                return oldItem == newItem
+                return oldItem === newItem
             }
 
-            @SuppressLint("DiffUtilEquals") // == always called on data class subtypes
+            @SuppressLint("DiffUtilEquals") // These are data classes, so == is always deep
             override fun areContentsTheSame(oldItem: ChatItem, newItem: ChatItem): Boolean {
                 return oldItem == newItem
             }

@@ -13,6 +13,8 @@ class ChatPagedKeyDataSource @Inject constructor(
     val db: AppDatabase
 ) : PageKeyedDataSource<Int, ChatItem>() {
 
+    private var previousUserId = -1
+
     override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, ChatItem>) {
         val currentPage = 0
         val previousPageKey = null
@@ -56,6 +58,15 @@ class ChatPagedKeyDataSource @Inject constructor(
         val displayItems = mutableListOf<ChatItem>()
 
         queryResults.forEach { item ->
+            // As seen in mocks, there is less vertical space between messages from the same user
+            // Here we add extra space when the user changes
+            if (previousUserId == -1) {
+                previousUserId = item.message.userId
+            }
+            if (previousUserId != item.message.userId) {
+                displayItems.add(ChatItem.ExtraSpaceDifferentUser())
+            }
+
             displayItems.add(item.message)
             displayItems.addAll(item.attachments)
         }
