@@ -4,8 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import dev.petedoyle.chatsample.features.chat.persistence.ChatItem
 import dev.petedoyle.chatsample.persistence.AppDatabase
+import javax.inject.Inject
 
-class ChatDataSourceFactory(
+class ChatDataSourceFactory @Inject constructor(
     private val db: AppDatabase
 ) : DataSource.Factory<Int, ChatItem>() {
     private val sourceLiveData = MutableLiveData<ChatPagedKeyDataSource>()

@@ -2,6 +2,7 @@ package dev.petedoyle.chatsample.features.chat
 
 import dagger.Module
 import dagger.Provides
+import dev.petedoyle.chatsample.features.chat.paging.ChatDataSourceFactory
 import dev.petedoyle.chatsample.persistence.AppDatabase
 import dev.petedoyle.daggerutil.ActivityScope
 
@@ -13,7 +14,13 @@ abstract class ChatModule {
         @ActivityScope
         @Provides
         @JvmStatic
-        fun provideChatRepository(db: AppDatabase): ChatRepository = DefaultChatRepository(db)
+        fun provideChatDataSourceFactory(db: AppDatabase): ChatDataSourceFactory = ChatDataSourceFactory(db)
+
+        @ActivityScope
+        @Provides
+        @JvmStatic
+        fun provideChatRepository(db: AppDatabase, factory: ChatDataSourceFactory): ChatRepository =
+            DefaultChatRepository(db, factory)
 
         @ActivityScope
         @Provides

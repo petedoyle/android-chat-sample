@@ -11,12 +11,12 @@ import dev.petedoyle.chatsample.persistence.AppDatabase
 import javax.inject.Inject
 
 class DefaultChatRepository @Inject constructor(
-    private val db: AppDatabase
+    private val db: AppDatabase,
+    private val dataSourceFactory: ChatDataSourceFactory
 ) : ChatRepository {
 
     private val users = MutableLiveData<List<User>>()
     private val chatItems = MutableLiveData<List<ChatItem>>()
-    private val dataSourceFactory = ChatDataSourceFactory(db)
 
     override fun chatItems(): LiveData<List<ChatItem>> = chatItems
     override fun users(): LiveData<List<User>> = users
