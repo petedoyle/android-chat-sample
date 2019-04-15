@@ -1,4 +1,4 @@
-package dev.petedoyle.chatsample.features.chat
+package dev.petedoyle.chatsample.features.chat.widget
 
 import androidx.recyclerview.widget.RecyclerView
 import dev.petedoyle.chatsample.databinding.ItemChatMessageMeBinding
