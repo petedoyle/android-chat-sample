@@ -2,6 +2,8 @@
 ### Chat Sample
 Sample chat app utilizing Room and the Paging library.
 
+![](tools/assets/tour.gif)
+
 # License
 
     Copyright 2019 Pete Doyle
