@@ -20,6 +20,8 @@
     <dimen name="margin_huge">96dp</dimen>
 
     <!-- 7dp in mocks, snapped to 8dp to be on 4dp grid. Would normally ask first. -->
+    <dimen name="message_corner_radius">4dp</dimen>
+    <dimen name="message_stroke_width">1dp</dimen>
     <dimen name="message_margin_top">8dp</dimen>
     <dimen name="message_margin_end">63dp</dimen>
     <dimen name="message_margin_start">71dp</dimen>
