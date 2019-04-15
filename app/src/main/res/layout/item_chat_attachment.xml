@@ -31,7 +31,7 @@
                     android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/attachment_preview_height"
-                    android:background="#FF0660"
+                    android:background="@color/bubbleBackgroundFill"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

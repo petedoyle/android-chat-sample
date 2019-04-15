@@ -28,12 +28,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <!-- TODO Let image height/width do its thing here -->
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/attachment_preview_height"
-                    android:background="#00FF00"
+                    android:background="@color/bubbleBackgroundFillMe"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
