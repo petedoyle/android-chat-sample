@@ -33,7 +33,7 @@ class DataImporter @Inject constructor(
                     val adapter = moshi.adapter(ChatResponseJson::class.java)
                     val json = adapter.fromJson(source)
 
-                    parseChatResponse(json)
+                    importFromJson(json)
                 }
 
                 emitter.onComplete()
@@ -47,7 +47,7 @@ class DataImporter @Inject constructor(
             })
     }
 
-    private fun parseChatResponse(json: ChatResponseJson?) {
+    private fun importFromJson(json: ChatResponseJson?) {
         if (json == null) {
             return
         }
