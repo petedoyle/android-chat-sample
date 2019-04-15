@@ -3,19 +3,16 @@ package dev.petedoyle.chatsample.features.chat
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.paging.PagedList
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.petedoyle.chatsample.BaseActivity
 import dev.petedoyle.chatsample.R
 import dev.petedoyle.chatsample.databinding.ActivityChatBinding
-import dev.petedoyle.chatsample.features.chat.persistence.ChatItem
 import dev.petedoyle.chatsample.features.chat.widget.ChatAttachmentMeViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatAttachmentViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatMessageMeViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatMessageViewHolder
-import io.reactivex.disposables.CompositeDisposable
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -25,8 +22,6 @@ class ChatActivity : BaseActivity() {
 
     private lateinit var binding: ActivityChatBinding
     private lateinit var adapter: ChatAdapter
-
-    private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,10 +60,5 @@ class ChatActivity : BaseActivity() {
                 }
             }
         }).attachToRecyclerView(binding.recyclerView)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        disposables.clear()
     }
 }
