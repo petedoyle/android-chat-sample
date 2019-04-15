@@ -31,9 +31,7 @@ class ChatActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        adapter = ChatAdapter(viewModel).apply {
-            setHasStableIds(true)
-        }
+        adapter = ChatAdapter(viewModel)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)

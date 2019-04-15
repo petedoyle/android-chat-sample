@@ -19,6 +19,11 @@ import java.util.UUID
 class ChatAdapter(
     private val viewModel: ChatViewModel
 ) : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCallback) {
+
+    init {
+        setHasStableIds(true)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
