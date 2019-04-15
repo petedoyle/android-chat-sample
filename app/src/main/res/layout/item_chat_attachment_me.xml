@@ -36,9 +36,14 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/attachment_separator_height"
+                    android:background="@color/attachmentSeparator" />
+
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="31dp"
+                    android:layout_height="@dimen/attachment_title_height"
                     android:background="@color/white"
                     android:ellipsize="end"
                     android:gravity="center_vertical"
@@ -52,8 +57,9 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/attachment_separator_height"
                     android:background="@color/attachmentSeparator" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

@@ -29,4 +29,6 @@
     <dimen name="attachment_preview_height">239dp</dimen>
     <dimen name="attachment_card_elevation">2dp</dimen>
     <dimen name="attachment_corner_radius">3dp</dimen>
+    <dimen name="attachment_separator_height">1px</dimen>
+    <dimen name="attachment_title_height">30dp</dimen>
 </resources>
