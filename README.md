@@ -4,6 +4,9 @@ Sample chat app utilizing Room and the Paging library.
 
 ![](tools/assets/tour.gif)
 
+### Requirements
+- Android Studio 3.5 Canary 10 (or higher)
+
 # License
 
     Copyright 2019 Pete Doyle
