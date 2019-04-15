@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class ChatViewModel @Inject constructor(
-    private val chatRepository: ChatRepository
+    private val chatRepository: IChatRepository
 ) : ViewModel(), IChatViewModel {
     private val disposables = CompositeDisposable()
 

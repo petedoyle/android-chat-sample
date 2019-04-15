@@ -30,7 +30,7 @@ abstract class ChatModule {
         @ActivityScope
         @Provides
         @JvmStatic
-        fun provideChatRepository(db: AppDatabase, factory: ChatDataSourceFactory): ChatRepository =
-            DefaultChatRepository(db, factory)
+        fun provideChatRepository(db: AppDatabase, factory: ChatDataSourceFactory): IChatRepository =
+            ChatRepository(db, factory)
     }
 }
