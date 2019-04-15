@@ -15,12 +15,15 @@ class ChatActivity : BaseActivity() {
 
     private lateinit var binding: ActivityChatBinding
 
-    private val adapter = ChatAdapter().apply {
-        setHasStableIds(true)
-    }
+    private lateinit var adapter: ChatAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        adapter = ChatAdapter(viewModel).apply {
+            setHasStableIds(true)
+        }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter

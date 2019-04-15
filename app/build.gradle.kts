@@ -79,6 +79,8 @@ dependencies {
     implementation(Deps.androidx_constraintlayout)
     implementation(Deps.androidx_ktx)
     implementation(Deps.androidx_paging_ktx)
+    implementation(Deps.glide)
+    kapt(Deps.glide_compiler)
     implementation(Deps.moshi)
     implementation(Deps.recyclerview)
     implementation(Deps.rxandroid)

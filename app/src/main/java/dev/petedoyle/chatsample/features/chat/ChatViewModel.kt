@@ -6,6 +6,6 @@ import javax.inject.Inject
 class ChatViewModel @Inject constructor(
     private val chatRepository: ChatRepository
 ) : ViewModel(), IChatViewModel {
-    override fun users() = chatRepository.users()
+    override fun getUser(userId: Int) = chatRepository.getUser(userId)
     override fun displayItems() = chatRepository.getPagedChatItems()
 }

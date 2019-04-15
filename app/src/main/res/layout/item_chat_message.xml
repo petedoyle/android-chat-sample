@@ -11,13 +11,12 @@
         android:paddingBottom="@dimen/margin_xsmall">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="@dimen/message_profile_size"
             android:layout_height="@dimen/message_profile_size"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="@dimen/padding_medium"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
@@ -36,7 +35,6 @@
                 android:layout_marginStart="@dimen/margin_small"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="@dimen/margin_small"
-                android:text="[Name]"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

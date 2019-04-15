@@ -16,7 +16,9 @@ import dev.petedoyle.chatsample.features.chat.widget.ChatMessageMeViewHolder
 import dev.petedoyle.chatsample.features.chat.widget.ChatMessageViewHolder
 import java.util.UUID
 
-class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCallback) {
+class ChatAdapter(
+    private val viewModel: ChatViewModel
+) : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
@@ -48,7 +50,7 @@ class ChatAdapter : PagedListAdapter<ChatItem, RecyclerView.ViewHolder>(diffCall
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         when (holder) {
-            is ChatMessageViewHolder -> holder.bindTo(item as ChatItem.Message)
+            is ChatMessageViewHolder -> holder.bindTo(item as ChatItem.Message, viewModel)
             is ChatMessageMeViewHolder -> holder.bindTo(item as ChatItem.Message)
             is ChatAttachmentViewHolder -> holder.bindTo(item as ChatItem.Attachment)
             is ChatAttachmentMeViewHolder -> holder.bindTo(item as ChatItem.Attachment)

@@ -1,6 +1,5 @@
 package dev.petedoyle.chatsample.features.chat.persistence
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -10,8 +9,8 @@ import io.reactivex.Single
 
 @Dao
 interface ChatDao {
-    @Query("SELECT * FROM users")
-    fun getUsers(): LiveData<List<User>>
+    @Query("SELECT * FROM users WHERE id = :userId")
+    fun getUser(userId: Int): Single<User>
 
     @Transaction
     @Query("SELECT * FROM messages ORDER BY id ASC LIMIT :pageSize OFFSET :offset")

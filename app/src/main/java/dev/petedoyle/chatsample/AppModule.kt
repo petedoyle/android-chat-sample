@@ -45,7 +45,7 @@ abstract class AppModule {
 
         @Provides
         @JvmStatic
-        internal fun provideAppDatabase(application: ChatApplication) : AppDatabase =
+        internal fun provideAppDatabase(application: ChatApplication): AppDatabase =
             Room.databaseBuilder(application, AppDatabase::class.java, "chat")
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
